@@ -11,10 +11,22 @@ class Backer
         ProjectBacker.new(project, self) 
     end
 
-    def backed_projects
-        
+    def my_projects
+        #going through projects and selecting all project backers that match the backer
+       ProjectBacker.all.select do |projectbacker|
+        binding.pry
+            projectbacker.backer == self
+        end
     end
+        
 
+    def backed_projects
+        self.my_projects.map do |projectbacker|
+            project_backer.project
+
+        end
+       
+    end
 
 
 end
