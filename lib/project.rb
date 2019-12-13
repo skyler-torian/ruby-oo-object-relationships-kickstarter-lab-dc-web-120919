@@ -10,4 +10,20 @@ class Project
         ProjectBacker.new(self, backer)
     end
 
+    def my_projects
+        ProjectBacker.all.select do |projectbacker|
+            projectbacker.project == self
+        end
+    end
+      
+
+    def backers
+        
+        #look through all project instances
+        my_projects.map do |b|
+            b.backer
+        end
+    end
+  
+
 end

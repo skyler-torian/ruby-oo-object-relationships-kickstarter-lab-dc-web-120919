@@ -14,19 +14,23 @@ class Backer
     def my_projects
         #going through projects and selecting all project backers that match the backer
        ProjectBacker.all.select do |projectbacker|
-        binding.pry
             projectbacker.backer == self
         end
     end
         
 
     def backed_projects
-        self.my_projects.map do |projectbacker|
-            project_backer.project
-
+        my_projects.map do |projectbacker|
+            projectbacker.project
         end
-       
     end
+
+    
+    
+        #return an array of projects associated
+        #with THIS Project instance
+
+       
 
 
 end
